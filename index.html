@@ -1,0 +1,79 @@
+<html>
+<head>
+  <link rel='stylesheet' href='https://cdn.jsdelivr.net/gh/kognise/water.css@latest/dist/light.css'>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style media="screen">
+    html,body{
+      height:100%;
+    }
+    .box{
+      width:100%;
+    }
+
+    .container{
+      width:100%;
+      height:100%;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+    }
+
+    .source {
+      width:30%;
+    }
+    .destination{
+      width:30%;
+    }
+    .arrow{
+      width:10%;
+    }
+  </style>
+  <script type="text/javascript">
+
+    function getTimeRemaining(){
+        var t = new Date('5/29/2019') - Date.parse(new Date());
+        var seconds = Math.floor( (t/1000) % 60 );
+        var minutes = Math.floor( (t/1000/60) % 60 );
+        var hours = Math.floor( (t/(1000*60*60)) % 24 );
+        var days = Math.floor( t/(1000*60*60*24) );
+        return {
+          'total': t,
+          'days': days,
+          'hours': hours,
+          'minutes': minutes,
+          'seconds': seconds
+        };
+    }
+
+    function initializeClock(id){
+
+      var clock = document.getElementById(id);
+      var timeinterval = setInterval(function(){
+        var t = getTimeRemaining();
+        clock.innerHTML = `${t.days} day(s) - ${t.hours.toString().padStart(2,'0')}:${t.minutes.toString().padStart(2,'0')}:${t.seconds.toString().padStart(2,'0')}`
+        if(t.total<=0){
+          clearInterval(timeinterval);
+        }
+      },1000);
+    }
+
+    document.addEventListener("DOMContentLoaded", function(event) {
+      initializeClock('counting');
+    });
+
+  </script>
+</head>
+
+<body>
+  <div class="container">
+    <div class="box">
+      <center>
+        <img src="delft.png" class="source">
+        <img src="arrow.png" class="arrow">
+        <img src="lv.png"  class="destination">
+        <h1 id="counting">...</h1>
+      </center>
+    </div>
+  </div>
+</body>
+</html>
