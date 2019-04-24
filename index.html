@@ -52,7 +52,7 @@
       var clock = document.getElementById(id);
       var timeinterval = setInterval(function(){
         var t = getTimeRemaining();
-        clock.innerHTML = `${t.days} day(s) - ${t.hours.toString().padStart(2,'0')}:${t.minutes.toString().padStart(2,'0')}:${t.seconds.toString().padStart(2,'0')}`
+        clock.innerHTML = `${t.days} day(s) - ${t.hours.toString().padStart(2,'0')}:${t.minutes.toString().padStart(2,'0')}:${t.seconds.toString().padStart(2,'0')} 🍾`
         if(t.total<=0){
           clearInterval(timeinterval);
         }
