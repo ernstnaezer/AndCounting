@@ -62,9 +62,11 @@
       var clock = document.getElementById(id);
       var timeinterval = setInterval(function(){
         var t = getTimeRemaining(targetDate);
-        clock.innerHTML = `${t.days} day(s) - ${t.hours.toString().padStart(2,'0')}:${t.minutes.toString().padStart(2,'0')}:${t.seconds.toString().padStart(2,'0')}`
         if(t.total<=0){
           clearInterval(timeinterval);
+          clock.innerHTML = "00 day(s) - 00:00:00"
+        } else {
+          clock.innerHTML = `${t.days.toString().padStart(2,'0')} day(s) - ${t.hours.toString().padStart(2,'0')}:${t.minutes.toString().padStart(2,'0')}:${t.seconds.toString().padStart(2,'0')}`
         }
       },1000);
     }
