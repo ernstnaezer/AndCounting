@@ -78,6 +78,18 @@
       initializeClock('checking', new Date('5/28/2019 17:15'));
       initializeClock('packing', new Date('5/24/2019 15:00'));
       initializeClock('paying', new Date('5/20/2019 06:00'));
+
+      if(new Date() >= new Date('5/31/2019 23:59')) {
+          var timers = document.querySelector("timers")
+          var root = timers.parentNode;
+
+          var img = document.createElement("img");
+          img.src = "./vector-gif-firework-6.gif";
+
+          root.removeChild(timers);
+          root.appendChild(img);
+      }
+
     });
 
   </script>
@@ -90,12 +102,14 @@
         <img src="delft.png" class="source">
         <img src="arrow.png" class="arrow">
         <img src="lv.png"  class="destination">
-        <h2><span id="champagne"></span> 🍾</h2>
-        <h2><span id="keys"></span> 🔑</h2>
-        <h2><span id="moving"></span> 🚚</h2>
-        <h2><span id="checking"></span> 📋</h2>
-        <h2><span id="packing"></span> 📦</h2>
-        <h2><span id="paying"></span> 💰</h2>
+        <timers>
+          <h2><span id="champagne"></span> 🍾</h2>
+          <h2><span id="keys"></span> 🔑</h2>
+          <h2><span id="moving"></span> 🚚</h2>
+          <h2><span id="checking"></span> 📋</h2>
+          <h2><span id="packing"></span> 📦</h2>
+          <h2><span id="paying"></span> 💰</h2>
+        <timers>
       </center>
     </div>
   </div>
